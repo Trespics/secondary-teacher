@@ -44,7 +44,7 @@ const teacherNavItems = [
   { label: "Subjects", icon: BookOpen, to: "/teacher/subjects" },
   // { label: "CBC Module", icon: Layers, to: "/teacher/cbc-lessons" },
   { label: "Assignments", icon: FileText, to: "/teacher/create-assignment" },
-  { label: "CATs / Assessments", icon: ClipboardCheck, to: "/teacher/create-cat" },
+  // { label: "CATs / Assessments", icon: ClipboardCheck, to: "/teacher/create-cat" },
   { label: "Grading", icon: ListChecks, to: "/teacher/grading" },
   { label: "Students", icon: Users, to: "/teacher/students" },
   { label: "Performance", icon: BarChart3, to: "/teacher/performance" },

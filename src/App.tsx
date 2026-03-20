@@ -19,7 +19,12 @@ import TeacherLogin from "./pages/Login";
 import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
 import NotFound from "./pages/NotFound";
+import ContactPage from "./pages/ContactPage";
+import PrivacyPolicy from "./components/PrivacyPolicy";
+import TermsOfService from "./components/TermsOfService";
 // import './App.css'
+     
+import Home from "./pages/Home";
 
 const queryClient = new QueryClient();
 
@@ -50,6 +55,10 @@ function App() {
           <Sonner />
           <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
             <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/contact" element={<ContactPage />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="/terms-of-service" element={<TermsOfService />} />
               <Route path="/login" element={<TeacherLogin />} />
               <Route path="/forgot-password" element={<ForgotPassword />} />
               <Route path="/reset-password" element={<ResetPassword />} />

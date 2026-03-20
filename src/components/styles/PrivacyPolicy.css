@@ -1,0 +1,282 @@
+/* Privacy Policy Styles - Government Document Style */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #1a2b3c; /* Monochrome blue background */
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.policy-container {
+  min-height: 100vh;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #1a2b3c 0%, #2c3e50 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.document-wrapper {
+  max-width: 1000px;
+  width: 100%;
+  background-color: #ffffff;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  padding: 60px 70px;
+  position: relative;
+  border-radius: 2px;
+}
+
+/* Header Styles */
+.document-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.header-line {
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #1a2b3c, #2c3e50, #1a2b3c, transparent);
+  margin: 10px 0;
+}
+
+.header-line.bottom {
+  margin-top: 20px;
+}
+
+.document-header h1 {
+  font-size: 32px;
+  font-weight: bold;
+  color: #000000;
+  letter-spacing: 3px;
+  margin: 15px 0;
+  text-transform: uppercase;
+  border-bottom: 2px solid #1a2b3c;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
+.document-id, .effective-date, .last-updated {
+  font-size: 16px;
+  color: #000000;
+  margin: 5px 0;
+  line-height: 1.6;
+}
+
+.id-label, .date-label, .update-label {
+  font-weight: bold;
+  color: #1a2b3c;
+  margin-right: 10px;
+}
+
+/* Welcome Section */
+.welcome-section {
+  margin-bottom: 40px;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-left: 4px solid #1a2b3c;
+}
+
+.welcome-text {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #000000;
+  margin-bottom: 15px;
+}
+
+.emphasis-text {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #000000;
+  font-weight: bold;
+  font-style: italic;
+  padding: 10px;
+  border: 1px dashed #1a2b3c;
+}
+
+/* Section Styles */
+.policy-section {
+  margin-bottom: 35px;
+}
+
+.policy-section h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #000000;
+  margin: 25px 0 15px 0;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #1a2b3c;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.policy-section h3 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #000000;
+  margin: 20px 0 10px 0;
+  font-style: italic;
+}
+
+.policy-section p {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #000000;
+  margin-bottom: 15px;
+  text-align: justify;
+}
+
+.policy-section ul {
+  margin: 15px 0 20px 30px;
+}
+
+.policy-section li {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #000000;
+  margin-bottom: 10px;
+  text-align: justify;
+}
+
+.policy-section li strong {
+  color: #1a2b3c;
+  font-weight: bold;
+}
+
+/* Platform Name Styling */
+.platform-name {
+  font-weight: bold;
+  color: #1a2b3c;
+  font-style: italic;
+}
+
+/* Section Divider */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #1a2b3c, #2c3e50, #1a2b3c, transparent);
+  margin: 30px 0 20px 0;
+  opacity: 0.3;
+}
+
+/* Contact Information */
+.contact-info {
+  margin: 25px 0;
+  padding: 20px;
+  background-color: #f0f4f8;
+  border: 1px solid #1a2b3c;
+  border-radius: 4px;
+}
+
+.contact-info p {
+  font-size: 18px;
+  line-height: 2;
+  color: #000000;
+  margin: 5px 0;
+}
+
+.contact-info strong {
+  color: #1a2b3c;
+  font-size: 20px;
+}
+
+/* Footer */
+.document-footer {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.footer-line {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #1a2b3c, #2c3e50, #1a2b3c, transparent);
+  margin: 20px 0;
+}
+
+.copyright {
+  font-size: 16px;
+  color: #000000;
+  margin: 10px 0;
+  font-style: italic;
+}
+
+.document-reference {
+  font-size: 14px;
+  color: #000000;
+  font-family: monospace;
+  letter-spacing: 1px;
+}
+
+/* Print Styles */
+@media print {
+  body {
+    background-color: white;
+  }
+  
+  .policy-container {
+    background: white;
+    padding: 0;
+  }
+  
+  .document-wrapper {
+    box-shadow: none;
+    padding: 40px;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .document-wrapper {
+    padding: 30px 20px;
+  }
+  
+  .document-header h1 {
+    font-size: 26px;
+  }
+  
+  .policy-section h2 {
+    font-size: 22px;
+  }
+  
+  .policy-section h3 {
+    font-size: 20px;
+  }
+  
+  .policy-section p,
+  .policy-section li {
+    font-size: 16px;
+  }
+  
+  .welcome-text,
+  .emphasis-text {
+    font-size: 16px;
+  }
+}
+
+/* Decorative Elements */
+.document-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  border: 1px solid rgba(26, 43, 60, 0.1);
+  pointer-events: none;
+  border-radius: 2px;
+}
+
+/* Page Numbers (for multi-page prints) */
+@media print {
+  .policy-section {
+    page-break-inside: avoid;
+  }
+  
+  .document-header {
+    page-break-after: avoid;
+  }
+  
+  .document-footer {
+    page-break-before: avoid;
+  }
+}

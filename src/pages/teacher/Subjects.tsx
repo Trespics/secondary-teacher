@@ -57,13 +57,11 @@ interface AssignedSubject {
 interface Strand {
   id: string;
   name: string;
-  description: string;
 }
 
 interface SubStrand {
   id: string;
   name: string;
-  description: string;
 }
 
 interface LearningOutcome {
@@ -329,7 +327,6 @@ const Subjects = () => {
                   <CardHeader className="p-5 flex flex-row items-center justify-between space-y-0">
                     <div>
                       <CardTitle className="text-lg">{strand.name}</CardTitle>
-                      <CardDescription>{strand.description || "No description available for this strand."}</CardDescription>
                     </div>
                     {openingId === strand.id ? (
                       <div className="flex items-center gap-2 text-indigo-600">
@@ -364,7 +361,6 @@ const Subjects = () => {
                   <CardHeader className="p-5 flex flex-row items-center justify-between space-y-0">
                     <div>
                       <CardTitle className="text-lg">{ss.name}</CardTitle>
-                      <CardDescription>{ss.description || "No description available for this sub-strand."}</CardDescription>
                     </div>
                     {openingId === ss.id ? (
                       <div className="flex items-center gap-2 text-indigo-600">
