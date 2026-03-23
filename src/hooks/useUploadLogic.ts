@@ -1,5 +1,4 @@
 import { useState } from "react";
-import supabase from "@/config/supabase";
 import api from "@/lib/api";
 import { toast } from "sonner";
 

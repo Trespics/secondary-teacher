@@ -176,8 +176,8 @@ export const useUploadLogic = (initialType: string, editingMaterial: any, onSucc
     const requiredTitle = isPastPaper ? (form.title || (uploadedFiles.length > 0 ? uploadedFiles[0].name.split(".")[0] : "")) : form.title;
     const requiredDesc = isPastPaper ? (form.description || `Past paper for ${requiredTitle}`) : form.description;
 
-    if (!requiredTitle || !form.class_id || (!isPastPaper && !requiredDesc)) {
-      toast.error("Please fill in all required fields.");
+    if (!requiredTitle || !form.class_id || !form.subject_id || (!isPastPaper && !requiredDesc)) {
+      toast.error("Please fill in all required fields (Title, Class, Subject, and Description).");
       return;
     }
 
@@ -190,24 +190,36 @@ export const useUploadLogic = (initialType: string, editingMaterial: any, onSucc
     try {
       const tagsArray = form.tags.split(",").map((s) => s.trim()).filter((s) => s);
 
+      // Sanitize helper to convert empty strings to null for UUID/Foreign Key fields
+      const sanitize = (data: any) => {
+        const sanitized = { ...data };
+        ['strand_id', 'sub_strand_id', 'learning_outcome_id'].forEach(key => {
+          if (sanitized[key] === "") sanitized[key] = null;
+        });
+        return sanitized;
+      };
+
       if (editingMaterial) {
-        const payload = { ...form, title: requiredTitle, description: requiredDesc, tags: tagsArray, file_url: uploadedFiles[0]?.url || "" };
+        const payload = sanitize({ ...form, title: requiredTitle, description: requiredDesc, tags: tagsArray, file_url: uploadedFiles[0]?.url || "" });
         const table = editingMaterial._table || (editingMaterial.type === 'Past Paper' ? 'past_papers' : 'materials');
         const endpoint = table === 'past_papers' ? `/teacher/past-papers/${editingMaterial.id}` : `/teacher/materials/${editingMaterial.id}`;
+        
+        console.log("Updating material payload:", payload);
         await api.put(endpoint, payload);
         toast.success("Updated successfully.");
       } else {
         if (isPastPaper) {
           // Bulk past paper upload
-          const pastPapers = uploadedFiles.map(file => ({
+          const pastPapers = uploadedFiles.map(file => sanitize({
             ...form,
             title: file.name.split(".")[0],
             file_url: file.url
           }));
+          console.log("Publishing past papers:", pastPapers);
           await api.post("/teacher/past-papers", { pastPapers });
         } else {
           // Bulk material upload (Notes, Video, Audio, Book)
-          const materials = uploadedFiles.map(file => ({
+          const materials = uploadedFiles.map(file => sanitize({
             ...form,
             title: file.name.split(".")[0],
             description: requiredDesc,
@@ -216,9 +228,11 @@ export const useUploadLogic = (initialType: string, editingMaterial: any, onSucc
           }));
           
           if (uploadedFiles.length > 1) {
+            console.log("Publishing bulk materials:", materials);
             await api.post("/teacher/materials", { materials });
           } else {
-             const payload = { ...form, title: requiredTitle, description: requiredDesc, tags: tagsArray, file_url: uploadedFiles[0]?.url || "" };
+             const payload = sanitize({ ...form, title: requiredTitle, description: requiredDesc, tags: tagsArray, file_url: uploadedFiles[0]?.url || "" });
+             console.log("Publishing single material:", payload);
              await api.post("/teacher/materials", payload);
           }
         }
@@ -226,8 +240,10 @@ export const useUploadLogic = (initialType: string, editingMaterial: any, onSucc
       }
       onSuccess();
       if (onCancel) onCancel();
-    } catch (err) {
-      toast.error("Failed to save.");
+    } catch (err: any) {
+      console.error("Upload error details:", err);
+      const errorMessage = err.response?.data?.error || err.message || "Failed to save.";
+      toast.error(`Error: ${errorMessage}`);
     } finally {
       setIsSubmitting(false);
     }

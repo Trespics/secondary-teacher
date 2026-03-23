@@ -4,7 +4,7 @@ import './styles/Features.css';
 import { FaFileAlt, FaChartBar, FaStar, FaBook, FaCalendarAlt, FaChartLine } from 'react-icons/fa';
 
 interface Feature {
-  icon: string;
+  icon: React.ReactNode;
   title: string;
   description: string;
 }

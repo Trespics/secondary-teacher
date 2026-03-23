@@ -14,6 +14,7 @@ import StudentManagement from "./pages/teacher/StudentManagement";
 import TeacherNotifications from "./pages/teacher/TeacherNotifications";
 import TeacherProfile from "./pages/teacher/TeacherProfile";
 import Subjects from "./pages/teacher/Subjects";
+import Books from "./pages/teacher/Books";
 import CBCLessons from "./pages/teacher/CBCLessons";
 import TeacherLogin from "./pages/Login";
 import ForgotPassword from "./pages/ForgotPassword";
@@ -66,6 +67,7 @@ function App() {
               <Route path="/teacher" element={<ProtectedRoute><TeacherDashboard /></ProtectedRoute>} />
               <Route path="/teacher/upload-materials" element={<ProtectedRoute><UploadMaterials /></ProtectedRoute>} />
               <Route path="/teacher/subjects" element={<ProtectedRoute><Subjects /></ProtectedRoute>} />
+              <Route path="/teacher/books" element={<ProtectedRoute><Books /></ProtectedRoute>} />
               <Route path="/teacher/create-assignment" element={<ProtectedRoute><CreateAssignment /></ProtectedRoute>} />
               <Route path="/teacher/create-cat" element={<ProtectedRoute><CreateCAT /></ProtectedRoute>} />
               <Route path="/teacher/cbc-lessons" element={<ProtectedRoute><CBCLessons /></ProtectedRoute>} />

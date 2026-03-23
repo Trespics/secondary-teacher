@@ -46,7 +46,7 @@ const teacherNavItems = [
   { label: "Assignments", icon: FileText, to: "/teacher/create-assignment" },
   // { label: "CATs / Assessments", icon: ClipboardCheck, to: "/teacher/create-cat" },
   { label: "Grading", icon: ListChecks, to: "/teacher/grading" },
-  { label: "Students", icon: Users, to: "/teacher/students" },
+  { label: "Books", icon: BookOpen, to: "/teacher/books" },
   { label: "Performance", icon: BarChart3, to: "/teacher/performance" },
   { label: "Reports", icon: PieChart, to: "/teacher/reports" },
   { label: "Profile", icon: User, to: "/teacher/profile" },

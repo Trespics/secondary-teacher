@@ -11,7 +11,7 @@ import {
   BookOpen,
   ArrowUpRight,
   Filter,
-  Download,
+  Download, MessageSquare,
   Loader2
 } from "lucide-react";
 import { 
