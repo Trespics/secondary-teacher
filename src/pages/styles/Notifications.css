@@ -1,0 +1,759 @@
+/* TeacherNotifications.css - Professional Monochrome Blue Theme */
+
+/* Container Styles */
+.teacher-notifications-container {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  background: #ffffff;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+/* Loading State */
+.teacher-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+}
+
+.loading-spinner {
+  animation: spin 1s linear infinite;
+  height: 2rem;
+  width: 2rem;
+  color: #2563eb;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Header Section */
+.notifications-header {
+  margin-bottom: 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  border-bottom: 2px solid #eef2ff;
+  padding-bottom: 1.5rem;
+}
+
+.header-content {
+  flex: 1;
+}
+
+.page-title {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #1e293b;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.title-icon {
+  width: 1.75rem;
+  height: 1.75rem;
+  color: #2563eb;
+}
+
+.page-subtitle {
+  color: #64748b;
+  font-size: 0.95rem;
+  font-family: 'Times New Roman', Times, serif;
+  line-height: 1.5;
+}
+
+.header-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* Button Styles */
+.compose-button {
+  gap: 0.5rem;
+  height: 2.5rem;
+  background: #2563eb;
+  color: white;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.compose-button:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
+
+.mark-all-button {
+  gap: 0.5rem;
+  height: 2.5rem;
+  border-color: #e2e8f0;
+  font-family: 'Times New Roman', Times, serif;
+  color: #475569;
+  transition: all 0.2s ease;
+}
+
+.mark-all-button:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+}
+
+/* Dialog Styles */
+.compose-dialog {
+  border-radius: 1rem;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.dialog-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1e293b;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.dialog-description {
+  color: #64748b;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.compose-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 1rem 0;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-field label {
+  font-weight: 600;
+  color: #334155;
+  font-size: 0.875rem;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  font-family: 'Times New Roman', Times, serif;
+  border-color: #e2e8f0;
+  transition: all 0.2s ease;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.form-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.dialog-footer {
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.cancel-button {
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.send-button {
+  background: #2563eb;
+  gap: 0.5rem;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.send-button:hover {
+  background: #1d4ed8;
+}
+
+/* Main Grid */
+.notifications-grid {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 2rem;
+}
+
+/* Sidebar Navigation */
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.nav-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background: #f8fafc;
+  border-radius: 1rem;
+  padding: 0.75rem;
+  border: 1px solid #eef2ff;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  transition: all 0.2s ease;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.nav-item:hover {
+  background: #ffffff;
+  transform: translateX(2px);
+}
+
+.nav-item-active {
+  background: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  border-left: 3px solid #2563eb;
+}
+
+.nav-item-active-blue {
+  border-left-color: #2563eb;
+}
+
+.nav-item-active-green {
+  border-left-color: #10b981;
+}
+
+.nav-item-active-purple {
+  border-left-color: #8b5cf6;
+}
+
+.nav-item-active-orange {
+  border-left-color: #f59e0b;
+}
+
+.nav-item-active-amber {
+  border-left-color: #fbbf24;
+}
+
+.nav-item-content {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.nav-icon {
+  color: #94a3b8;
+  transition: color 0.2s ease;
+}
+
+.nav-icon-active-blue {
+  color: #2563eb;
+}
+
+.nav-icon-active-green {
+  color: #10b981;
+}
+
+.nav-icon-active-purple {
+  color: #8b5cf6;
+}
+
+.nav-icon-active-orange {
+  color: #f59e0b;
+}
+
+.nav-icon-active-amber {
+  color: #fbbf24;
+}
+
+.nav-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #475569;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.nav-item-active .nav-label {
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.nav-badge-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-badge {
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.125rem 0.5rem;
+  border-radius: 9999px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.nav-badge-default {
+  background: #e2e8f0;
+  color: #475569;
+}
+
+.nav-badge-active-blue {
+  background: #2563eb;
+  color: white;
+}
+
+.nav-badge-active-green {
+  background: #10b981;
+  color: white;
+}
+
+.nav-badge-active-purple {
+  background: #8b5cf6;
+  color: white;
+}
+
+.nav-badge-active-orange {
+  background: #f59e0b;
+  color: white;
+}
+
+.nav-badge-active-amber {
+  background: #fbbf24;
+  color: #78350f;
+}
+
+.nav-unread-dot {
+  width: 8px;
+  height: 8px;
+  background: #ef4444;
+  border-radius: 50%;
+  display: inline-block;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Stats Card */
+.stats-card {
+  background: #f8fafc;
+  border: 1px solid #eef2ff;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.stats-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-bottom: 0.75rem;
+  margin-bottom: 0.75rem;
+  border-bottom: 1px solid #e2e8f0;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #475569;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.stats-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.stat-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.stat-label {
+  color: #64748b;
+}
+
+.stat-value {
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.stat-unread {
+  color: #2563eb;
+  font-weight: 700;
+}
+
+/* Notifications List Area */
+.notifications-list-area {
+  min-height: 500px;
+}
+
+.notifications-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.notification-item-wrapper {
+  width: 100%;
+}
+
+/* Notification Card */
+.notification-card {
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.notification-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border-color: #cbd5e1;
+}
+
+.notification-unread {
+  background: linear-gradient(135deg, #eff6ff 0%, #ffffff 100%);
+  border-left: 4px solid #ef4444;
+  border: 2px solid #ef4444;
+}
+
+.notification-read {
+  border: 2px solid #10b981;
+}
+
+.notification-card-content {
+  padding: 1.25rem !important;
+  display: flex;
+  gap: 1rem;
+}
+
+.notification-icon-wrapper {
+  flex-shrink: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f1f5f9;
+  transition: all 0.2s ease;
+}
+
+.icon-wrapper-unread {
+  background: #ffffff;
+  box-shadow: 0 1px 3px rgba(37, 99, 235, 0.1);
+  border: 1px solid #bfdbfe;
+}
+
+.type-icon {
+  transition: all 0.2s ease;
+}
+
+.submission-icon {
+  color: #10b981;
+}
+
+.message-icon {
+  color: #f59e0b;
+}
+
+.system-icon {
+  color: #8b5cf6;
+}
+
+.reminder-icon {
+  color: #f97316;
+}
+
+.general-icon {
+  color: #64748b;
+}
+
+.notification-details {
+  flex: 1;
+  min-width: 0;
+}
+
+.notification-header-details {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.notification-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.title-unread {
+  color: #0f172a;
+  font-weight: 800;
+}
+
+.notification-time {
+  font-size: 0.7rem;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  white-space: nowrap;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.notification-message {
+  font-size: 0.875rem;
+  color: #475569;
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.message-unread {
+  color: #334155;
+  font-weight: 500;
+}
+
+.notification-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.action-button-read {
+  height: 2rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-color: #e2e8f0;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.action-button-read:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+}
+
+.action-button-view {
+  height: 2rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: #2563eb;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.action-button-view:hover {
+  background: #1d4ed8;
+}
+
+.delete-button {
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.5rem;
+  color: #94a3b8;
+  transition: all 0.2s ease;
+  opacity: 0;
+}
+
+.notification-card:hover .delete-button {
+  opacity: 1;
+}
+
+.delete-button:hover {
+  color: #ef4444;
+  background: #fef2f2;
+}
+
+/* Empty State */
+.empty-state-card {
+  border: 2px dashed #e2e8f0;
+  background: #fafbfc;
+  box-shadow: none;
+  border-radius: 1rem;
+}
+
+.empty-state-content {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.empty-state-icon {
+  margin: 0 auto 1rem;
+  color: #cbd5e1;
+}
+
+.empty-state-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #475569;
+  margin-bottom: 0.5rem;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.empty-state-description {
+  font-size: 0.875rem;
+  color: #64748b;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .notifications-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .sidebar-nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .nav-menu {
+    flex: 1;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .nav-item {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .stats-card {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .teacher-notifications-container {
+    padding: 1rem;
+  }
+
+  .notifications-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .header-actions {
+    width: 100%;
+  }
+
+  .compose-button,
+  .mark-all-button {
+    flex: 1;
+  }
+
+  .page-title {
+    font-size: 1.5rem;
+  }
+
+  .notification-card-content {
+    flex-direction: column;
+  }
+
+  .notification-icon-wrapper {
+    align-self: flex-start;
+  }
+
+  .notification-header-details {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .notification-time {
+    align-self: flex-start;
+  }
+
+  .delete-button {
+    opacity: 1;
+    align-self: flex-end;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-menu {
+    flex-direction: column;
+  }
+
+  .nav-item {
+    justify-content: space-between;
+  }
+
+  .notification-actions {
+    flex-direction: column;
+  }
+
+  .action-button-read,
+  .action-button-view {
+    width: 100%;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .teacher-notifications-container {
+    padding: 0;
+  }
+
+  .header-actions,
+  .sidebar-nav,
+  .delete-button,
+  .notification-actions {
+    display: none;
+  }
+
+  .notification-card {
+    break-inside: avoid;
+    border: 1px solid #ddd;
+  }
+
+  .notification-unread {
+    background: none;
+    border-left: 2px solid #000;
+  }
+}
+
+/* Accessibility */
+.nav-item:focus-visible,
+.compose-button:focus-visible,
+.mark-all-button:focus-visible,
+.action-button-read:focus-visible,
+.action-button-view:focus-visible,
+.delete-button:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}

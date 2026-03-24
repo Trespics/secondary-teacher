@@ -3,52 +3,38 @@ import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "@/lib/auth-context";
 import {
   User,
-  CreditCard,
   FileText,
   BarChart3,
-  Activity,
   LogOut,
   BookOpen,
-  Bell,
-  Grid3X3,
-  Home,
-  CheckSquare,
-  HelpCircle,
-  Book,
   Menu,
   X,
   LayoutDashboard,
-  ClipboardCheck,
   ListChecks,
-  Users,
   PieChart,
-  Archive,
+  Bell,
   GraduationCap,
-  UserCircle,
-  Wallet,
-  ClipboardList,
-  Trophy,
-  Layers,
+  Library,
+
 } from "lucide-react";
-import "./styles/PortalLayout.css";
+import "./styles/PortalSidebar.css";
 
 interface SidebarProps {
-  type: "student" | "masomo" | "teacher";   
+  type: "student" | "masomo" | "teacher";
   isOpen?: boolean;
   onClose?: () => void;
 }
 
 const teacherNavItems = [
   { label: "Dashboard", icon: LayoutDashboard, to: "/teacher" },
-  { label: "Learning Materials", icon: BookOpen, to: "/teacher/upload-materials" },
+  { label: "Learning Materials", icon: Library, to: "/teacher/upload-materials" },
   { label: "Subjects", icon: BookOpen, to: "/teacher/subjects" },
-  // { label: "CBC Module", icon: Layers, to: "/teacher/cbc-lessons" },
   { label: "Assignments", icon: FileText, to: "/teacher/create-assignment" },
-  // { label: "CATs / Assessments", icon: ClipboardCheck, to: "/teacher/create-cat" },
   { label: "Grading", icon: ListChecks, to: "/teacher/grading" },
-  { label: "Books", icon: BookOpen, to: "/teacher/books" },
+  { label: "Books", icon: Library, to: "/teacher/books" },
   { label: "Performance", icon: BarChart3, to: "/teacher/performance" },
   { label: "Reports", icon: PieChart, to: "/teacher/reports" },
+  { label: "Notifications", icon: Bell, to: "/teacher/notifications" },
   { label: "Profile", icon: User, to: "/teacher/profile" },
 ];
 
@@ -58,12 +44,13 @@ const PortalSidebar = ({ type, isOpen: propIsOpen, onClose }: SidebarProps) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   
-  const links = teacherNavItems; // Updated to use teacherNavItems
+  const links = teacherNavItems;
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
-      if (window.innerWidth > 768) {
+      const mobile = window.innerWidth <= 768;
+      setIsMobile(mobile);
+      if (!mobile) {
         setIsMobileMenuOpen(false);
       }
     };
@@ -116,8 +103,13 @@ const PortalSidebar = ({ type, isOpen: propIsOpen, onClose }: SidebarProps) => {
         className={`portal-sidebar ${type} ${isMobile ? 'mobile' : ''} ${isMobileMenuOpen ? 'mobile-open' : ''}`}
       >
         <div className="sidebar-header">
-          <Home className="header-icon" />
-          <span className="header-title">TRESPICS</span>
+          <div className="logo-wrapper">
+            <GraduationCap className="logo-icon" />
+            <span className="logo-text">TRESPICS</span>
+          </div>
+          <div className="header-badge">
+            <span className="role-badge">{type === 'teacher' ? 'Teacher Portal' : type === 'student' ? 'Student Portal' : 'Learning Portal'}</span>
+          </div>
         </div>
 
         <nav className="sidebar-nav">
@@ -126,24 +118,29 @@ const PortalSidebar = ({ type, isOpen: propIsOpen, onClose }: SidebarProps) => {
             return (
               <Link
                 key={link.to}
-                to={link.to}
+                to={link.to}      
                 className={`nav-link ${isActive ? "active" : ""}`}
                 onClick={handleLinkClick}
               >
                 <link.icon className="nav-icon" />
-                <span className="nav-label">{link.label}</span>
+                <span className="nav-label" 
+                style={{color:"white", fontSize:"1rem"}}
+                >{link.label}</span>
+                {isActive && <div className="active-indicator" />}
               </Link>
             );
           })}
         </nav>
 
-        <button
-          onClick={handleLogout}
-          className="logout-button"
-        >
-          <LogOut className="logout-icon" />
-          <span className="logout-label">Logout</span>
-        </button>
+        <div className="sidebar-footer">
+          <button
+            onClick={handleLogout}
+            className="logout-button"
+          >
+            <LogOut className="logout-icon" />
+            <span className="logout-label">Logout</span>
+          </button>
+        </div>
       </aside>
     </>
   );
