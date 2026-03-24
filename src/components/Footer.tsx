@@ -150,8 +150,8 @@ const Footer: React.FC = () => {
                   <FaEnvelope />
                 </div>
                 <div className="contact-detail">
-                  <span className="contact-label">Email</span>
-                  <a href="mailto:info@eduportal.com">info@eduportal.com</a>
+                  <span className="contact-label" style={{color:"black"}}>Email</span>
+                  <a href="mailto:info@eduportal.com" style={{color:"black"}}>trespicsj@gmail.com</a>
                 </div>
               </li>
               <li>
@@ -159,8 +159,8 @@ const Footer: React.FC = () => {
                   <FaPhone />
                 </div>
                 <div className="contact-detail">
-                  <span className="contact-label">Phone</span>
-                  <a href="tel:+15551234567">+1 (555) 123-4567</a>
+                  <span className="contact-label" style={{color:"black"}}>Phone</span>
+                  <a href="tel:+15551234567" style={{color:"black"}}>+254 770428297</a>
                 </div>
               </li>
               <li>
@@ -168,8 +168,8 @@ const Footer: React.FC = () => {
                   <FaMapMarkerAlt />
                 </div>
                 <div className="contact-detail">
-                  <span className="contact-label">Office</span>
-                  <span>123 Education St, CA 94105</span>
+                  <span className="contact-label" style={{color:"black"}}>Office</span>
+                  <span style={{color:"black"}}>Kutus Town</span>
                 </div>
               </li>
             </ul>
