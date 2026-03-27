@@ -17,7 +17,7 @@ const Navbar: React.FC = () => {
         <div className={`navbar-menu ${isMenuOpen ? 'active' : ''}`}>
           <ul className="navbar-links">
             <li><a href="/" className="nav-link">Home</a></li>
-            <li><a href="/library" className="nav-link">Library</a></li>
+            <li><a href="https://secondary-library.vercel.app/login" className="nav-link">Library</a></li>
             {/* <li><a href="/features" className="nav-link">Features</a></li> */}
             <li><a href="/contact" className="nav-link">Contact Us</a></li>
           </ul>
