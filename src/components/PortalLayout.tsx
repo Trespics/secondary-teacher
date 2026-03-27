@@ -86,7 +86,7 @@ const PortalLayout = ({ children, type }: PortalLayoutProps) => {
             {isSidebarOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
           <div className="mobile-logo-wrapper">
-            <span className="mobile-logo">TRESPICS</span>
+            <span className="mobile-logo">Florante</span>
             <span className="mobile-role-badge">{getRoleTitle()}</span>
           </div>
           <div className="mobile-actions">
@@ -145,7 +145,7 @@ const PortalLayout = ({ children, type }: PortalLayoutProps) => {
                   </div>
                   <div className="dropdown-info">
                     <span className="dropdown-name">{user?.name || 'User'}</span>
-                    <span className="dropdown-email">{user?.email || 'user@trespics.com'}</span>
+                    <span className="dropdown-email">{user?.email || 'user@Florante.com'}</span>
                   </div>
                 </div>
                 <div className="dropdown-divider" />

@@ -30,10 +30,10 @@ const teacherNavItems = [
   { label: "Learning Materials", icon: Library, to: "/teacher/upload-materials" },
   { label: "Subjects", icon: BookOpen, to: "/teacher/subjects" },
   { label: "Assignments", icon: FileText, to: "/teacher/create-assignment" },
-  { label: "Grading", icon: ListChecks, to: "/teacher/grading" },
+  { label: "Assignment Grading", icon: ListChecks, to: "/teacher/grading" },
   { label: "Books", icon: Library, to: "/teacher/books" },
   { label: "Performance", icon: BarChart3, to: "/teacher/performance" },
-  { label: "Reports", icon: PieChart, to: "/teacher/reports" },
+  // { label: "Reports", icon: PieChart, to: "/teacher/reports" },
   { label: "Notifications", icon: Bell, to: "/teacher/notifications" },
   { label: "Profile", icon: User, to: "/teacher/profile" },
 ];
@@ -105,7 +105,7 @@ const PortalSidebar = ({ type, isOpen: propIsOpen, onClose }: SidebarProps) => {
         <div className="sidebar-header">
           <div className="logo-wrapper">
             <GraduationCap className="logo-icon" />
-            <span className="logo-text">TRESPICS</span>
+            <span className="logo-text">Florante</span>
           </div>
           <div className="header-badge">
             <span className="role-badge">{type === 'teacher' ? 'Teacher Portal' : type === 'student' ? 'Student Portal' : 'Learning Portal'}</span>

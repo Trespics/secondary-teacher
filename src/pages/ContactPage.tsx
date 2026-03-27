@@ -74,7 +74,7 @@ const ContactPage = () => {
             <h2 style={{ fontSize: "1.5rem", fontWeight: 700, color: "#f1f5f9", marginBottom: "1.5rem" }}>Get in Touch</h2>
             <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
               {[
-                { icon: Mail, label: "Email", value: "info@trespics.com", color: "#3b82f6" },
+                { icon: Mail, label: "Email", value: "info@florante.com", color: "#3b82f6" },
                 { icon: Phone, label: "Phone", value: "+254 700 000 000", color: "#8b5cf6" },
                 { icon: MapPin, label: "Address", value: "Nairobi, Kenya", color: "#10b981" },
               ].map((item, i) => (

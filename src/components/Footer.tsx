@@ -68,7 +68,7 @@ const Footer: React.FC = () => {
           {/* Brand Section */}
           <div className="footer-section brand-section">
             <h3 className="footer-logo">
-            Trespics
+            Florante
             </h3>
             <p className="footer-description">
               Empowering educators with modern tools for better learning outcomes. 
@@ -151,7 +151,7 @@ const Footer: React.FC = () => {
                 </div>
                 <div className="contact-detail">
                   <span className="contact-label" style={{color:"black"}}>Email</span>
-                  <a href="mailto:info@eduportal.com" style={{color:"black"}}>trespicsj@gmail.com</a>
+                  <a href="mailto:info@eduportal.com" style={{color:"black"}}>Florantej@gmail.com</a>
                 </div>
               </li>
               <li>
@@ -187,7 +187,7 @@ const Footer: React.FC = () => {
         <div className="footer-bottom">
           <div className="bottom-content">
             <p className="copyright">
-              © {new Date().getFullYear()} Trespics. 
+              © {new Date().getFullYear()} Florante. 
               <span className="copyright-highlight"> All rights reserved.</span>
             </p>
             
