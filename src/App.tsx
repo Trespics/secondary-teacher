@@ -10,6 +10,7 @@ import CreateAssignment from "./pages/teacher/CreateAssignment";
 import CreateCAT from "./pages/teacher/CreateCAT";
 import GradingInterface from "./pages/teacher/GradingInterface";
 import PerformanceTracking from "./pages/teacher/PerformanceTracking";
+import TeacherResults from "./pages/teacher/TeacherResults";
 import StudentManagement from "./pages/teacher/StudentManagement";
 import TeacherNotifications from "./pages/teacher/TeacherNotifications";
 import TeacherProfile from "./pages/teacher/TeacherProfile";
@@ -73,6 +74,7 @@ function App() {
               <Route path="/teacher/cbc-lessons" element={<ProtectedRoute><CBCLessons /></ProtectedRoute>} />
               <Route path="/teacher/grading" element={<ProtectedRoute><GradingInterface /></ProtectedRoute>} />
               <Route path="/teacher/performance" element={<ProtectedRoute><PerformanceTracking /></ProtectedRoute>} />
+              <Route path="/teacher/results" element={<ProtectedRoute><TeacherResults /></ProtectedRoute>} />
               <Route path="/teacher/students" element={<ProtectedRoute><StudentManagement /></ProtectedRoute>} />
               <Route path="/teacher/notifications" element={<ProtectedRoute><TeacherNotifications /></ProtectedRoute>} />
               <Route path="/teacher/profile" element={<ProtectedRoute><TeacherProfile /></ProtectedRoute>} />

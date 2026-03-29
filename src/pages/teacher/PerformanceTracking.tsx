@@ -60,9 +60,9 @@ const PerformanceTracking = () => {
   const getCBCLevel = (score: string | number | null) => {
     if (score === null || score === undefined) return { level: "-", color: "bg-gray-100 text-gray-400" };
     const s = typeof score === 'string' ? parseFloat(score) : score;
-    if (s >= 80) return { level: "EE", color: "bg-green-100 text-green-700" };
-    if (s >= 60) return { level: "ME", color: "bg-blue-100 text-blue-700" };
-    if (s >= 40) return { level: "AE", color: "bg-yellow-100 text-yellow-700" };
+    if (s >= 75) return { level: "EE", color: "bg-green-100 text-green-700" };
+    if (s >= 50) return { level: "ME", color: "bg-blue-100 text-blue-700" };
+    if (s >= 25) return { level: "AE", color: "bg-yellow-100 text-yellow-700" };
     return { level: "BE", color: "bg-red-100 text-red-700" };
   };
 
@@ -165,9 +165,24 @@ const PerformanceTracking = () => {
                               </div>
                             </td>
                             <td className="px-6 py-4 text-slate-600 font-medium">{s.class_name}</td>
-                            <td className="px-6 py-4 text-center text-slate-600">{s.grades['CAT 1'] || "-"}</td>
-                            <td className="px-6 py-4 text-center text-slate-600">{s.grades['CAT 2'] || "-"}</td>
-                            <td className="px-6 py-4 text-center font-bold text-slate-900">{s.grades['End Term'] || "-"}</td>
+                            <td className="px-6 py-4">
+                              <div className="flex flex-col items-center gap-1">
+                                <span className="font-medium text-slate-600">{s.grades['CAT 1'] || "-"}</span>
+                                {s.grades['CAT 1'] && <Badge className={`text-[10px] px-1.5 py-0 ${getCBCLevel(s.grades['CAT 1']).color} shadow-none`}>{getCBCLevel(s.grades['CAT 1']).level}</Badge>}
+                              </div>
+                            </td>
+                            <td className="px-6 py-4">
+                              <div className="flex flex-col items-center gap-1">
+                                <span className="font-medium text-slate-600">{s.grades['CAT 2'] || "-"}</span>
+                                {s.grades['CAT 2'] && <Badge className={`text-[10px] px-1.5 py-0 ${getCBCLevel(s.grades['CAT 2']).color} shadow-none`}>{getCBCLevel(s.grades['CAT 2']).level}</Badge>}
+                              </div>
+                            </td>
+                            <td className="px-6 py-4">
+                              <div className="flex flex-col items-center gap-1">
+                                <span className="font-bold text-slate-900">{s.grades['End Term'] || "-"}</span>
+                                {s.grades['End Term'] && <Badge className={`text-[10px] px-1.5 py-0 ${getCBCLevel(s.grades['End Term']).color} shadow-sm`}>{getCBCLevel(s.grades['End Term']).level}</Badge>}
+                              </div>
+                            </td>
                           </tr>
                         ))
                       )}

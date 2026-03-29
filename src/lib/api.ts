@@ -20,7 +20,7 @@ api.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response?.status === 401) {
-      localStorage.removeItem('teacher_token');
+      localStorage.removeItem('teacher_token');      
       localStorage.removeItem('teacher_user');
       window.location.href = '/login';
     }

@@ -33,6 +33,7 @@ const teacherNavItems = [
   { label: "Assignment Grading", icon: ListChecks, to: "/teacher/grading" },
   { label: "Books", icon: Library, to: "/teacher/books" },
   { label: "Performance", icon: BarChart3, to: "/teacher/performance" },
+  { label: "Results", icon: FileText, to: "/teacher/results" },
   // { label: "Reports", icon: PieChart, to: "/teacher/reports" },
   { label: "Notifications", icon: Bell, to: "/teacher/notifications" },
   { label: "Profile", icon: User, to: "/teacher/profile" },
