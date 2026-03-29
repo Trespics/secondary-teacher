@@ -31,9 +31,7 @@ import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+
 
 interface AssignedSubject {
   id: string;
@@ -399,7 +397,10 @@ const Subjects = () => {
                       {data.learningOutcomes.length > 0 ? data.learningOutcomes.map((lo) => (
                         <div key={lo.id} className="flex gap-3 p-4 bg-indigo-50/50 rounded-xl border border-indigo-100">
                           <FileCheck className="text-indigo-600 shrink-0" size={20} />
-                          <p className="text-sm text-indigo-900">{lo.description}</p>
+                          <div 
+                            className="text-sm text-indigo-900 break-words" 
+                            dangerouslySetInnerHTML={{ __html: lo.description }} 
+                          />
                         </div>
                       )) : (
                         <p className="text-slate-400 text-sm italic">No specific learning outcomes assigned yet.</p>
