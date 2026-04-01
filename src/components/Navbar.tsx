@@ -8,9 +8,9 @@ const Navbar: React.FC = () => {
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <div className="navbar-logo">
+        <div className="navbar-logo">     
           <a href="/">
-            <span className="logo-text">Teacher's &nbsp; Portal</span>
+            Teacher's &nbsp; Portal
           </a>
         </div>
 

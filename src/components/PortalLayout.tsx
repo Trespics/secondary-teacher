@@ -3,6 +3,8 @@ import { Navigate } from "react-router-dom";
 import { useAuth } from "@/lib/auth-context";
 import PortalSidebar from "./PortalSidebar";
 import { Menu, X, Bell, ChevronDown } from "lucide-react";
+import api from "@/lib/api";
+import { supabase } from "@/lib/supabase";
 import "./styles/PortalLayout.css";
 
 interface PortalLayoutProps {
@@ -15,6 +17,7 @@ const PortalLayout = ({ children, type }: PortalLayoutProps) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const [showUserMenu, setShowUserMenu] = useState(false);
+  const [unreadCount, setUnreadCount] = useState(0);
 
   useEffect(() => {
     const handleResize = () => {
@@ -38,6 +41,49 @@ const PortalLayout = ({ children, type }: PortalLayoutProps) => {
     document.addEventListener('click', handleClickOutside);
     return () => document.removeEventListener('click', handleClickOutside);
   }, [showUserMenu]);
+  useEffect(() => {
+    if (!user?.id || type !== 'teacher') return;
+
+    fetchUnreadCount();
+
+    const channel = supabase
+      .channel('public:messages_unread_teacher')
+      .on(
+        'postgres_changes',
+        {
+          event: 'INSERT',
+          schema: 'public',
+          table: 'messages',
+          filter: `receiver_id=eq.${user.id}`,
+        },
+        () => fetchUnreadCount()
+      )
+      .on(
+        'postgres_changes',
+        {
+          event: 'UPDATE',
+          schema: 'public',
+          table: 'messages',
+          filter: `receiver_id=eq.${user.id}`,
+        },
+        () => fetchUnreadCount()
+      )
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
+  }, [user?.id, type]);
+
+  const fetchUnreadCount = async () => {
+    try {
+      const { data } = await api.get("/teacher/messages");
+      const total = data.reduce((acc: number, conv: any) => acc + conv.unreadCount, 0);
+      setUnreadCount(total);
+    } catch (err) {
+      console.error("Error fetching unread count:", err);
+    }
+  };
 
   if (!isAuthenticated) {
     return <Navigate to={`/login/${type}`} replace />;
@@ -73,6 +119,7 @@ const PortalLayout = ({ children, type }: PortalLayoutProps) => {
         type={type} 
         isOpen={isSidebarOpen} 
         onClose={() => setIsSidebarOpen(false)} 
+        unreadMessages={unreadCount}
       />
       
       <main className={`portal-main ${isSidebarOpen ? 'sidebar-open' : ''}`}>
@@ -86,7 +133,7 @@ const PortalLayout = ({ children, type }: PortalLayoutProps) => {
             {isSidebarOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
           <div className="mobile-logo-wrapper">
-            <span className="mobile-logo">Florante</span>
+            <span className="mobile-logo">{user?.schools?.name || "School Portal"}</span>
             <span className="mobile-role-badge">{getRoleTitle()}</span>
           </div>
           <div className="mobile-actions">
@@ -145,7 +192,7 @@ const PortalLayout = ({ children, type }: PortalLayoutProps) => {
                   </div>
                   <div className="dropdown-info">
                     <span className="dropdown-name">{user?.name || 'User'}</span>
-                    <span className="dropdown-email">{user?.email || 'user@Florante.com'}</span>
+                    <span className="dropdown-email">{user?.email || 'user@school.com'}</span>
                   </div>
                 </div>
                 <div className="dropdown-divider" />

@@ -11,11 +11,10 @@ import {
   X,
   LayoutDashboard,
   ListChecks,
-  PieChart,
   Bell,
   GraduationCap,
   Library,
-
+  MessageSquare,
 } from "lucide-react";
 import "./styles/PortalSidebar.css";
 
@@ -23,6 +22,7 @@ interface SidebarProps {
   type: "student" | "masomo" | "teacher";
   isOpen?: boolean;
   onClose?: () => void;
+  unreadMessages?: number;
 }
 
 const teacherNavItems = [
@@ -34,14 +34,14 @@ const teacherNavItems = [
   { label: "Books", icon: Library, to: "/teacher/books" },
   { label: "Performance", icon: BarChart3, to: "/teacher/performance" },
   { label: "Results", icon: FileText, to: "/teacher/results" },
-  // { label: "Reports", icon: PieChart, to: "/teacher/reports" },
+  { label: "Messages", icon: MessageSquare, to: "/teacher/messages" },
   { label: "Notifications", icon: Bell, to: "/teacher/notifications" },
   { label: "Profile", icon: User, to: "/teacher/profile" },
 ];
-
-const PortalSidebar = ({ type, isOpen: propIsOpen, onClose }: SidebarProps) => {
+         
+const PortalSidebar = ({ type, isOpen: propIsOpen, onClose, unreadMessages = 0 }: SidebarProps) => {
   const { pathname } = useLocation();
-  const { logout } = useAuth();
+  const { logout, user } = useAuth();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   
@@ -106,7 +106,7 @@ const PortalSidebar = ({ type, isOpen: propIsOpen, onClose }: SidebarProps) => {
         <div className="sidebar-header">
           <div className="logo-wrapper">
             <GraduationCap className="logo-icon" />
-            <span className="logo-text">Florante</span>
+            <span className="logo-text">{user?.schools?.name || "School Portal"}</span>
           </div>
           <div className="header-badge">
             <span className="role-badge">{type === 'teacher' ? 'Teacher Portal' : type === 'student' ? 'Student Portal' : 'Learning Portal'}</span>
@@ -127,6 +127,17 @@ const PortalSidebar = ({ type, isOpen: propIsOpen, onClose }: SidebarProps) => {
                 <span className="nav-label" 
                 style={{color:"white", fontSize:"1rem"}}
                 >{link.label}</span>
+                {link.label === "Messages" && unreadMessages > 0 && (
+                  <span className="nav-badge" style={{
+                    background: "#ef4444",
+                    color: "white",
+                    fontSize: "10px",
+                    padding: "2px 6px",
+                    borderRadius: "10px",
+                    marginLeft: "auto",
+                    fontWeight: "bold"
+                  }}>{unreadMessages}</span>
+                )}
                 {isActive && <div className="active-indicator" />}
               </Link>
             );

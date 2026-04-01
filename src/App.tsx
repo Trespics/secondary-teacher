@@ -24,6 +24,7 @@ import NotFound from "./pages/NotFound";
 import ContactPage from "./pages/ContactPage";
 import PrivacyPolicy from "./components/PrivacyPolicy";
 import TermsOfService from "./components/TermsOfService";
+import Messages from "./pages/teacher/Messages";
 // import './App.css'
      
 import Home from "./pages/Home";
@@ -64,7 +65,6 @@ function App() {
               <Route path="/login" element={<TeacherLogin />} />
               <Route path="/forgot-password" element={<ForgotPassword />} />
               <Route path="/reset-password" element={<ResetPassword />} />
-              <Route path="/" element={<Navigate to="/login" replace />} />
               <Route path="/teacher" element={<ProtectedRoute><TeacherDashboard /></ProtectedRoute>} />
               <Route path="/teacher/upload-materials" element={<ProtectedRoute><UploadMaterials /></ProtectedRoute>} />
               <Route path="/teacher/subjects" element={<ProtectedRoute><Subjects /></ProtectedRoute>} />
@@ -78,6 +78,7 @@ function App() {
               <Route path="/teacher/students" element={<ProtectedRoute><StudentManagement /></ProtectedRoute>} />
               <Route path="/teacher/notifications" element={<ProtectedRoute><TeacherNotifications /></ProtectedRoute>} />
               <Route path="/teacher/profile" element={<ProtectedRoute><TeacherProfile /></ProtectedRoute>} />
+              <Route path="/teacher/messages" element={<ProtectedRoute><Messages /></ProtectedRoute>} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Router>
